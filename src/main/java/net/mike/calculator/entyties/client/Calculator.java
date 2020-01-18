@@ -1,6 +1,6 @@
 package net.mike.calculator.entyties.client;
 
-import net.mike.calculator.entyties.invoker.ControlUnit;
+import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.entyties.receiver.ArithmeticUnit;
 import net.mike.calculator.logic.command.Command;
 
