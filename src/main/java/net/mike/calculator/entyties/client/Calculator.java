@@ -14,6 +14,7 @@ public class Calculator {
 	
 	public Calculator() {
 		super();
+		arithmeticUnit = new ArithmeticUnit();
 		controlUnit = new ControlUnit();
 	}
 	public int run(Command command) {
