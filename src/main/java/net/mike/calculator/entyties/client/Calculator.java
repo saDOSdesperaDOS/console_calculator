@@ -4,6 +4,7 @@ import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.entyties.receiver.ArithmeticUnit;
 import net.mike.calculator.logic.command.Command;
 import net.mike.calculator.logic.command.concretecommand.AdditionCommand;
+import net.mike.calculator.logic.command.concretecommand.SubstractionCommand;
 
 public class Calculator {
 	
@@ -13,17 +14,22 @@ public class Calculator {
 	
 	public Calculator() {
 		super();
-		this.controlUnit = new ControlUnit();
+		controlUnit = new ControlUnit();
 	}
 	public int run(Command command) {
 		controlUnit.setCommand(command);
-		rez = controlUnit.ExecuteCommand();
-		return 0;
+		controlUnit.ExecuteCommand();
+		return arithmeticUnit.rez;
 	}
 	
 	public int add(int a, int b) {
 		
-		return run(new AdditionCommand(arithmeticUnit, 2, 4));
+		return run(new AdditionCommand(arithmeticUnit, a, b));
+	}
+	
+	public int sub(int a, int b) {
+		
+		return run(new SubstractionCommand(arithmeticUnit, a, b));
 	}
 	
 	
