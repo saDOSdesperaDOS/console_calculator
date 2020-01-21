@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Start App");
 		Calculator calculator = new Calculator();
-		int result = 0;
-		System.out.println(calculator.add(9, 2));
+		System.out.println(calculator.div(8, 2));
 		
 		
 		

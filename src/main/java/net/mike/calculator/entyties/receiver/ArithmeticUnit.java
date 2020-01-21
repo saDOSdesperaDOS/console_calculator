@@ -12,6 +12,12 @@ public class ArithmeticUnit {
 			case "-":
 				rez = operand1 - operand2;
 			break;
+			case "*":
+				rez = operand1 * operand2;
+				break;
+			case "/":
+				rez = operand1 / operand2;
+				break;
 		}
 	}
 }

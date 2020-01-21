@@ -4,6 +4,8 @@ import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.entyties.receiver.ArithmeticUnit;
 import net.mike.calculator.logic.command.Command;
 import net.mike.calculator.logic.command.concretecommand.AdditionCommand;
+import net.mike.calculator.logic.command.concretecommand.DivisionCommand;
+import net.mike.calculator.logic.command.concretecommand.MultiplicationCommand;
 import net.mike.calculator.logic.command.concretecommand.SubstractionCommand;
 
 public class Calculator {
@@ -32,6 +34,13 @@ public class Calculator {
 		
 		return run(new SubstractionCommand(arithmeticUnit, a, b));
 	}
-	
+	public int mul(int a, int b) {
+		
+		return run(new MultiplicationCommand(arithmeticUnit, a, b));
+	}
+	public int div(int a, int b) {
+		
+		return run(new DivisionCommand(arithmeticUnit, a, b));
+	}
 	
 }
