@@ -1,5 +1,8 @@
 package net.mike.calculator.entyties.client;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.entyties.receiver.ArithmeticUnit;
 import net.mike.calculator.logic.command.Command;
@@ -12,13 +15,21 @@ public class Calculator {
 	
 	ArithmeticUnit arithmeticUnit;
 	ControlUnit controlUnit;
-	int rez;
+	int result;
 	
 	public Calculator() {
 		super();
 		arithmeticUnit = new ArithmeticUnit();
 		controlUnit = new ControlUnit();
 	}
+	
+	public int getResult() {
+		return result;
+	}
+	public void setResult(int rez) {
+		this.result = rez;
+	}
+	
 	public int run(Command command) {
 		controlUnit.setCommand(command);
 		controlUnit.ExecuteCommand();
