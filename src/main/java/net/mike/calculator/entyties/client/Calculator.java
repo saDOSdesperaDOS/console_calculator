@@ -1,12 +1,12 @@
 package net.mike.calculator.entyties.client;
 
+import net.mike.calculator.service.command.Command;
+import net.mike.calculator.service.command.concretecommand.AdditionCommand;
+import net.mike.calculator.service.command.concretecommand.DivisionCommand;
+import net.mike.calculator.service.command.concretecommand.MultiplicationCommand;
+import net.mike.calculator.service.command.concretecommand.SubstractionCommand;
 import net.mike.calculator.service.invoker.ControlUnit;
-import net.mike.calculator.entyties.receiver.ArithmeticUnit;
-import net.mike.calculator.logic.command.Command;
-import net.mike.calculator.logic.command.concretecommand.AdditionCommand;
-import net.mike.calculator.logic.command.concretecommand.DivisionCommand;
-import net.mike.calculator.logic.command.concretecommand.MultiplicationCommand;
-import net.mike.calculator.logic.command.concretecommand.SubstractionCommand;
+import net.mike.calculator.service.receiver.ArithmeticUnit;
 
 public class Calculator {
 	

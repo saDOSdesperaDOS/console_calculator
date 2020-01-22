@@ -1,4 +1,4 @@
-package net.mike.calculator.entyties.receiver; 
+package net.mike.calculator.service.receiver; 
 //receiver
 public class ArithmeticUnit {
 	public int rez;

@@ -3,7 +3,8 @@ package net.mike.calculator;
 import java.util.Scanner;
 
 import net.mike.calculator.entyties.client.Calculator;
-import net.mike.calculator.logic.convert.Converter;
+import net.mike.calculator.service.convert.Converter;
+
 
 public class Main {
 

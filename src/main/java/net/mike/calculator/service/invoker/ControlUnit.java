@@ -1,6 +1,6 @@
 package net.mike.calculator.service.invoker;
 
-import net.mike.calculator.logic.command.Command;
+import net.mike.calculator.service.command.Command;
 
 //invoker
 

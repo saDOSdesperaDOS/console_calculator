@@ -1,4 +1,4 @@
-package net.mike.calculator.logic.convert;
+package net.mike.calculator.service.convert;
 
 public class Converter {
 	

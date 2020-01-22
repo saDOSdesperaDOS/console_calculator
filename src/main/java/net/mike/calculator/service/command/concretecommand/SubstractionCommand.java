@@ -1,7 +1,7 @@
-package net.mike.calculator.logic.command.concretecommand;
+package net.mike.calculator.service.command.concretecommand;
 
-import net.mike.calculator.entyties.receiver.ArithmeticUnit;
-import net.mike.calculator.logic.command.Command;
+import net.mike.calculator.service.command.Command;
+import net.mike.calculator.service.receiver.ArithmeticUnit;
 
 public class SubstractionCommand extends Command {
 
