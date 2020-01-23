@@ -7,43 +7,78 @@ import net.mike.calculator.service.command.concretecommand.MultiplicationCommand
 import net.mike.calculator.service.command.concretecommand.SubstractionCommand;
 import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
+import net.mike.calculator.service.receiver.ConverterUnit;
 import net.mike.calculator.service.receiver.Unit;
 
 public class Calculator {
-	
-	Unit arithmeticUnit, coonUnit;
-	
-	ControlUnit controlUnit;
-	int rez;
+	private ControlUnit controlUnit = new ControlUnit();
+	private String result;
+	private Unit converterUnit = new ConverterUnit();
+	private Unit arithmeticUnit = new ArithmeticUnit();
 	
 	public Calculator() {
 		super();
-		coonUnit = 
-		arithmeticUnit = new ArithmeticUnit();
-		controlUnit = new ControlUnit();
+	    this.setConverterUnit(converterUnit);
+	    this.setArithmeticUnit(arithmeticUnit);
+	    this.setControlUnit(controlUnit);
 	}
-	public int run(Command command) {
+	public Unit getConverterUnit() {
+		return converterUnit;
+	}
+
+	public void setConverterUnit(Unit converterUnit) {
+		this.converterUnit = converterUnit;
+	}
+
+	public Unit getArithmeticUnit() {
+		return arithmeticUnit;
+	}
+
+	public void setArithmeticUnit(Unit arithmeticUnit) {
+		this.arithmeticUnit = arithmeticUnit;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public ControlUnit getControlUnit() {
+		return controlUnit;
+	}
+
+	public void setControlUnit(ControlUnit controlUnit) {
+		this.controlUnit = controlUnit;
+	}
+
+	
+	
+	public String run(Command command) {
 		controlUnit.setCommand(command);
-		controlUnit.ExecuteCommand();
-		return arithmeticUnit.rez;
+		
+		return controlUnit.ExecuteCommand();
 	}
 	
-	public int add(int a, int b) {
-		
-		return run(new AdditionCommand(arithmeticUnit, a, b));
+	public void add(String a, String b) {
+		run(new AdditionCommand(this.getArithmeticUnit(), a, b));
 	}
 	
-	public int sub(int a, int b) {
+	public void sub(String a, String b) {
 		
-		return run(new SubstractionCommand(arithmeticUnit, a, b));
+		run(new SubstractionCommand(this.getArithmeticUnit(), a, b));
 	}
-	public int mul(int a, int b) {
+	
+	public void mul(String a, String b) {
 		
-		return run(new MultiplicationCommand(arithmeticUnit, a, b));
+		run(new MultiplicationCommand(this.getArithmeticUnit(), a, b));
 	}
-	public int div(int a, int b) {
-		
-		return run(new DivisionCommand(arithmeticUnit, a, b));
+	
+	public String div(String a, String b) {
+		this.setArithmeticUnit(arithmeticUnit);
+		 return run(new DivisionCommand(this.getArithmeticUnit(), a, b));
 	}
 	
 }

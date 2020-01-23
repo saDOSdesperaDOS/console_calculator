@@ -12,8 +12,8 @@ public class ConverterUnit implements Unit {
 	public void run(String operation, String operand1, String operand2) {
 		
 		cOperation = operation;
-		cOperand1 = this.convertRomanToInt(operand1);
-		cOperand2 = this.convertRomanToInt(operand2);
+		cOperand1 = ConverterUnit.convertRomanToInt(operand1);
+		cOperand2 = ConverterUnit.convertRomanToInt(operand2);
 	}
 	public String getcOperand1() {
 		return cOperand1;
@@ -33,6 +33,49 @@ public class ConverterUnit implements Unit {
 	public void setcOperation(String cOperation) {
 		this.cOperation = cOperation;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cOperand1 == null) ? 0 : cOperand1.hashCode());
+		result = prime * result + ((cOperand2 == null) ? 0 : cOperand2.hashCode());
+		result = prime * result + ((cOperation == null) ? 0 : cOperation.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ConverterUnit other = (ConverterUnit) obj;
+		if (cOperand1 == null) {
+			if (other.cOperand1 != null)
+				return false;
+		} else if (!cOperand1.equals(other.cOperand1))
+			return false;
+		if (cOperand2 == null) {
+			if (other.cOperand2 != null)
+				return false;
+		} else if (!cOperand2.equals(other.cOperand2))
+			return false;
+		if (cOperation == null) {
+			if (other.cOperation != null)
+				return false;
+		} else if (!cOperation.equals(other.cOperation))
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "ConverterUnit [cOperand1=" + cOperand1 + ", cOperand2=" + cOperand2 + ", cOperation=" + cOperation
+				+ "]";
+	}
+	
 	public static String convertRomanToInt(String romanNumeral) throws NumberFormatException {
 		Integer integerValue = 0;
  
@@ -49,6 +92,8 @@ public class ConverterUnit implements Unit {
 		}
 		return integerValue.toString();
 	}
+	
+	
  
 	private static String letterToNumber(char letter) {
  
@@ -77,6 +122,7 @@ public class ConverterUnit implements Unit {
 		}
 		return romanValue;
 	}
+	
 
 
 }

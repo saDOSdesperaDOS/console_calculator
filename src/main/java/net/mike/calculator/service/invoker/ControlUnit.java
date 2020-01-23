@@ -6,10 +6,16 @@ import net.mike.calculator.service.command.Command;
 
 public class ControlUnit {
 	
+	@Override
+	public String toString() {
+		return "ControlUnit [command=" + command + "]";
+	}
+
 	private Command command;
 	
-	public void ExecuteCommand() {
-		 command.execute();
+	public String ExecuteCommand() {
+		 
+		return command.execute();
 	}
 
 	public Command getCommand() {

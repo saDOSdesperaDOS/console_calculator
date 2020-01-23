@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import net.mike.calculator.entyties.client.Calculator;
+
 
 
 public class Main {
 
 	public static void main(String[] args) {
-		/*System.out.println("Start App");
+		System.out.println("Start App");
 		Calculator calculator = new Calculator();
-		System.out.println(calculator.div(8, 2));*/
+		
+		
+		System.out.println(calculator.div("8", "2"));
 		 
-  			System.out.println("Enter expression: ");
+  			/*System.out.println("Enter expression: ");
 
   			Scanner input = new Scanner(System.in);
   			List<String> ex = new ArrayList<String>();
@@ -25,9 +29,9 @@ public class Main {
   			}
   			
   			System.out.println(ex.size());
-  			String c = ex.get(0);
+  			String c = ex.get(0);*/
   			
-  			try {
+  			/*try {
 
   				if ( Character.isDigit( c ) )//если число
   				{				
@@ -43,7 +47,7 @@ public class Main {
   			catch( NumberFormatException e)
   			{
   				System.out.println("Problem: Invalid format");
-  			}
+  			}*/
 
             }
 		
