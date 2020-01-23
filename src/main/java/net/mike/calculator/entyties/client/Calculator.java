@@ -62,18 +62,19 @@ public class Calculator {
 		return controlUnit.ExecuteCommand();
 	}
 	
-	public void add(String a, String b) {
-		run(new AdditionCommand(this.getArithmeticUnit(), a, b));
+	public String add(String a, String b) {
+		this.setArithmeticUnit(arithmeticUnit);
+		return run(new AdditionCommand(this.getArithmeticUnit(), a, b));
 	}
 	
-	public void sub(String a, String b) {
-		
-		run(new SubstractionCommand(this.getArithmeticUnit(), a, b));
+	public String sub(String a, String b) {
+		this.setArithmeticUnit(arithmeticUnit);
+		return run(new SubstractionCommand(this.getArithmeticUnit(), a, b));
 	}
 	
-	public void mul(String a, String b) {
-		
-		run(new MultiplicationCommand(this.getArithmeticUnit(), a, b));
+	public String mul(String a, String b) {
+		this.setArithmeticUnit(arithmeticUnit);
+		return run(new MultiplicationCommand(this.getArithmeticUnit(), a, b));
 	}
 	
 	public String div(String a, String b) {

@@ -5,16 +5,10 @@ public class ConverterUnit implements Unit {
 	static int numbers[]  = {1, 4, 5, 9, 10, 50, 100, 500, 1000 };
 	static String letters[]  = { "I", "IV", "V", "IX", "X", "L", "C", "D", "M"};
 	static int last = 2000;
-	public String cOperand1, cOperand2, cOperation;
+	private String cOperand1, cOperand2, cOperation;
+	private String strResult;
+	private Integer result;
 	
-	
-	@Override
-	public void run(String operation, String operand1, String operand2) {
-		
-		cOperation = operation;
-		cOperand1 = ConverterUnit.convertRomanToInt(operand1);
-		cOperand2 = ConverterUnit.convertRomanToInt(operand2);
-	}
 	public String getcOperand1() {
 		return cOperand1;
 	}
@@ -32,6 +26,19 @@ public class ConverterUnit implements Unit {
 	}
 	public void setcOperation(String cOperation) {
 		this.cOperation = cOperation;
+	}
+	
+	public String getStrResult() {
+		return strResult;
+	}
+	public void setStrResult(String strResult) {
+		this.strResult = strResult;
+	}
+	public Integer getResult() {
+		return result;
+	}
+	public void setResult(Integer result) {
+		this.result = result;
 	}
 	
 	@Override
@@ -121,6 +128,15 @@ public class ConverterUnit implements Unit {
 			}
 		}
 		return romanValue;
+	}
+	
+	@Override
+	public String run(String operation, String operand1, String operand2 ) {
+		
+		cOperation = operation;
+		cOperand1 = ConverterUnit.convertRomanToInt(operand1);
+		cOperand2 = ConverterUnit.convertRomanToInt(operand2);
+		return cOperation + " " + cOperand1 + " " + cOperand2;
 	}
 	
 

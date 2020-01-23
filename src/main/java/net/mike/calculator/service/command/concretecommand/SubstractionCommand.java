@@ -6,8 +6,27 @@ import net.mike.calculator.service.receiver.Unit;
 
 public class SubstractionCommand extends Command {
 
-	protected Unit unit;//receiver
-	protected String param1, param2;
+	private Unit unit = new ArithmeticUnit();//receiver
+	private String param1, param2;
+	
+	public Unit getUnit() {
+		return unit;
+	}
+	public void setUnit(Unit unit) {
+		this.unit = unit;
+	}
+	public String getParam1() {
+		return param1;
+	}
+	public void setParam1(String param1) {
+		this.param1 = param1;
+	}
+	public String getParam2() {
+		return param2;
+	}
+	public void setParam2(String param2) {
+		this.param2 = param2;
+	}
 	
 	public SubstractionCommand(Unit unit, String a, String b) {
 		this.unit =unit;
@@ -15,9 +34,9 @@ public class SubstractionCommand extends Command {
 		this.param2 = b;
 	}
 	@Override
-	public void execute() {
-		 unit.run("-", param1, param2);
-		
+	public String execute() {
+		return unit.run("+", this.getParam1(), this.getParam2());		
 	}
+	
 
 }

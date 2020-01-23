@@ -15,7 +15,8 @@ public class Main {
 		Calculator calculator = new Calculator();
 		
 		
-		System.out.println(calculator.div("8", "2"));
+		System.out.println(calculator.add("8", "2"));
+		
 		 
   			/*System.out.println("Enter expression: ");
 

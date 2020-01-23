@@ -9,6 +9,11 @@ public class DivisionCommand extends Command {
 	private Unit unit = new ArithmeticUnit();
 	private String param1, param2;
 	
+	public DivisionCommand(Unit unit, String param1, String param2) {
+		this.unit = unit;
+		this.param1 = param1;
+		this.param2 = param2;
+	}
 	public Unit getUnit() {
 		return unit;
 	}
@@ -33,11 +38,7 @@ public class DivisionCommand extends Command {
 		this.param2 = param2;
 	}
 
-	public DivisionCommand(Unit unit, String param1, String param2) {
-		this.unit = unit;
-		this.param1 = param1;
-		this.param2 = param2;
-	}
+	
 	
 	@Override
 	public String execute() {
