@@ -7,15 +7,18 @@ import net.mike.calculator.service.command.concretecommand.MultiplicationCommand
 import net.mike.calculator.service.command.concretecommand.SubstractionCommand;
 import net.mike.calculator.service.invoker.ControlUnit;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
+import net.mike.calculator.service.receiver.Unit;
 
 public class Calculator {
 	
-	ArithmeticUnit arithmeticUnit;
+	Unit arithmeticUnit, coonUnit;
+	
 	ControlUnit controlUnit;
 	int rez;
 	
 	public Calculator() {
 		super();
+		coonUnit = 
 		arithmeticUnit = new ArithmeticUnit();
 		controlUnit = new ControlUnit();
 	}

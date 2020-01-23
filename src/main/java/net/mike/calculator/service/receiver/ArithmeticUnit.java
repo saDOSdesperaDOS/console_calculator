@@ -1,22 +1,22 @@
 package net.mike.calculator.service.receiver; 
 //receiver
-public class ArithmeticUnit {
+public class ArithmeticUnit implements Unit {
 	public int rez;
 	
-	public void run(String operation, int operand1, int operand2 ) {
+	public void run(String operation, String operand1, String operand2 ) {
 		
 		switch (operation) {
 			case "+" :
-				rez = operand1 + operand2;
+				rez = Integer.parseInt(operand1) + Integer.parseInt(operand2);
 			break;
 			case "-":
-				rez = operand1 - operand2;
+				rez = Integer.parseInt(operand1) - Integer.parseInt(operand2);
 			break;
 			case "*":
-				rez = operand1 * operand2;
+				rez = Integer.parseInt(operand1) * Integer.parseInt(operand2);
 				break;
 			case "/":
-				rez = operand1 / operand2;
+				rez = Integer.parseInt(operand1) / Integer.parseInt(operand2);
 				break;
 		}
 	}
