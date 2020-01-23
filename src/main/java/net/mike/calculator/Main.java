@@ -15,40 +15,10 @@ public class Main {
 		Calculator calculator = new Calculator();
 		
 		
-		System.out.println(calculator.add("8", "2"));
+		calculator.add(8, 4);
 		
 		 
-  			/*System.out.println("Enter expression: ");
-
-  			Scanner input = new Scanner(System.in);
-  			List<String> ex = new ArrayList<String>();
   			
-  			while(input.hasNext()) {
-  				
-  				String str = input.next();
-  				ex.add(str);
-  			}
-  			
-  			System.out.println(ex.size());
-  			String c = ex.get(0);*/
-  			
-  			/*try {
-
-  				if ( Character.isDigit( c ) )//если число
-  				{				
-  					int int_value = Integer.parseInt( value );
-
-  					System.out.println("Roman value = " + Numeral.convertIntegerToRoman(int_value));
-  				}
-  				else {
-
-  					System.out.println("Integer value = " + Numeral.convertRomanToInt(value));
-  				}
-  			}
-  			catch( NumberFormatException e)
-  			{
-  				System.out.println("Problem: Invalid format");
-  			}*/
 
             }
 		
