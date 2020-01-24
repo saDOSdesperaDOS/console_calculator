@@ -4,15 +4,13 @@ import net.mike.calculator.service.command.Command;
 import net.mike.calculator.service.command.concretecommand.AdditionCommand;
 import net.mike.calculator.service.invoker.Controller;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
-import net.mike.calculator.service.receiver.ConverterUnit;
-import net.mike.calculator.service.receiver.Unit;
 
 //client
 public class Calculator {
 	
 	private String result;
 	private Controller controller;
-	private Unit unit;
+	private ArithmeticUnit unit;
 	Command command;
 	
 	public Calculator() {
@@ -25,7 +23,7 @@ public class Calculator {
 		controller.ExecuteCommand();
 	}
 	
-	public void add(String a, String b) {
+	public void add(String exp) {
 		unit = new ArithmeticUnit();
 		/*Эту проверку осуществляем в ArithmeticUnit
 		 * 1.если параметры  a, b арфбские цифры, то
@@ -37,16 +35,8 @@ public class Calculator {
 		 * 
 		 * 
 		 * */
-		command = new AdditionCommand(unit, a, b);
+		command = new AdditionCommand(unit, exp);
 		run(command);
-	}
-	
-	public Unit getUnit() {
-	  return unit;
-	}
-
-	public void setUnit(Unit unit) {
-	  this.unit = unit;
 	}
 
 	/*public String sub(String a, String b) {

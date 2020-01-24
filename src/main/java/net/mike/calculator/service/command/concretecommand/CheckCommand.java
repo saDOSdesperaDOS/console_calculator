@@ -3,17 +3,14 @@ package net.mike.calculator.service.command.concretecommand;
 import net.mike.calculator.service.command.Command;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
 
-//Concrete command
-public class AdditionCommand extends Command {
+public class CheckCommand extends Command {
 	
 	private ArithmeticUnit unit;//receiver
 	private String exp;
-
 	
-	public AdditionCommand(ArithmeticUnit unit, String exp) {
-		this.unit =  unit;
-		  this.exp = exp;
-		 
+	public CheckCommand(ArithmeticUnit unit, String exp) {
+		this.unit = unit;
+		this.exp = exp;
 	}
 
 	public String getExp() {
@@ -26,6 +23,7 @@ public class AdditionCommand extends Command {
 
 	@Override
 	public void execute() {
-	  unit.run(exp);
+		unit.run(exp);
 	}
+
 }

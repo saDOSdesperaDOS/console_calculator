@@ -12,17 +12,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Start App");
-		Calculator calculator = new Calculator();
+		String[] split;
+		System.out.println("Введите выражение для вычисления: ");
+		Scanner input = new Scanner(System.in);
+		String exp = input.nextLine();
 		
-		calculator.add("10", "4");
-		
-		 
-  			
 
-            }
-		
+	        
 		
 	}
+}
 
 

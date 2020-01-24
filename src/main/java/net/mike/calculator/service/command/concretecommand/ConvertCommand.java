@@ -1,14 +1,13 @@
 package net.mike.calculator.service.command.concretecommand;
 
 import net.mike.calculator.service.command.Command;
-import net.mike.calculator.service.receiver.ConverterUnit;
-import net.mike.calculator.service.receiver.Unit;
+import net.mike.calculator.service.receiver.ArithmeticUnit;
 
 public class ConvertCommand extends Command {
-	 Unit unit;//receiver
+	ArithmeticUnit unit;//receiver
 	 String command;
 	
-	public ConvertCommand(ConverterUnit unit, String command) {
+	public ConvertCommand(ArithmeticUnit unit, String command) {
 		super();
 		this.unit = unit;
 		this.command = command;
