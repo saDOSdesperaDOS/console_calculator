@@ -15,7 +15,7 @@ public class Main {
 		Calculator calculator = new Calculator();
 		
 		
-		calculator.add(8, 4);
+		calculator.add(10, 4);
 		
 		 
   			
