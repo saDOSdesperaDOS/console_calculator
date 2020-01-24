@@ -1,4 +1,4 @@
-package net.mike.calculator.service.command.concretecommand.convert_command;
+package net.mike.calculator.service.command.concretecommand;
 
 import net.mike.calculator.service.command.Command;
 import net.mike.calculator.service.receiver.ConverterUnit;
