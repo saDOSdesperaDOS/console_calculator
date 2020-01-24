@@ -8,10 +8,10 @@ import net.mike.calculator.service.receiver.Unit;
 public class AdditionCommand extends Command {
 	
 	private Unit unit;//receiver
-	private int operand1, operand2;
+	private String operand1, operand2;
 
 	
-	public AdditionCommand(Unit unit, int a, int b) {
+	public AdditionCommand(Unit unit, String a, String b) {
 		this.unit =  unit;
 		  this.operand1 = a;
 		    this.operand2 = b;

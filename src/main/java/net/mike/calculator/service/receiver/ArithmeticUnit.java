@@ -1,4 +1,5 @@
 package net.mike.calculator.service.receiver; 
+
 //receiver
 public class ArithmeticUnit implements Unit {
 
@@ -13,20 +14,23 @@ public class ArithmeticUnit implements Unit {
 	}
 
 	@Override
-	public void run(String operation, int operand1, int operand2 ) {
+	public void run(String operation, String operand1, String operand2 ) {
+		
+		int iOperand1 = Integer.parseInt(operand1);
+		int iOperand2 = Integer.parseInt(operand2);
 		
 		switch(operation) {
 		  case "+" :
-			result = operand1 + operand2;
+			result = iOperand1 + iOperand2;
 		   break;
 			  case "-":
-				result = operand1- operand2;
+				result = iOperand1- iOperand2;
 		      break;
 			    case "*":
-				  result = operand1 * operand2;
+				  result = iOperand1 * iOperand2;
                     break;
 			          case "/":
-			            result = operand1 / operand2;
+			            result = iOperand1 / iOperand2;
                              break;
 	 }
 		System.out.println(result);

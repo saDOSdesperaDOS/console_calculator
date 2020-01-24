@@ -1,5 +1,5 @@
 package net.mike.calculator.service.receiver;
 
 public interface Unit {
-	void run(String operatipn, int operand1, int operand2);
+	void run(String operatipn, String operand1, String operand2);
 }

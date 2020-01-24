@@ -11,11 +11,11 @@ import net.mike.calculator.entyties.client.Calculator;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		System.out.println("Start App");
 		Calculator calculator = new Calculator();
 		
-		
-		calculator.add(10, 4);
+		calculator.add("10", "4");
 		
 		 
   			

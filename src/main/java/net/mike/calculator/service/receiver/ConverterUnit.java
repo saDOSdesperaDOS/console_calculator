@@ -101,10 +101,9 @@ public class ConverterUnit implements Unit {
 		return romanValue;
 	}
 	
-	
 	@Override
-	public void run(String operatipn, int operand1, int operand2) {
-		
+	public void run(String operatipn, String operand1, String operand2) {
+		// TODO Auto-generated method stub
 		
 	}
 	

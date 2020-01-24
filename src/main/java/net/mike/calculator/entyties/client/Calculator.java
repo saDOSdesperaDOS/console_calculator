@@ -7,6 +7,7 @@ import net.mike.calculator.service.receiver.ArithmeticUnit;
 import net.mike.calculator.service.receiver.ConverterUnit;
 import net.mike.calculator.service.receiver.Unit;
 
+//client
 public class Calculator {
 	
 	private String result;
@@ -24,8 +25,18 @@ public class Calculator {
 		controller.ExecuteCommand();
 	}
 	
-	public void add(int a, int b) {
+	public void add(String a, String b) {
 		unit = new ArithmeticUnit();
+		/*Эту проверку осуществляем в ArithmeticUnit
+		 * 1.если параметры  a, b арфбские цифры, то
+		 * 2.проводим с ними арифмитич. операции
+		 * 3.если нет, то парвметры являются римскими цифрами
+		 * 4.и мы переводими их в арабские
+		 * 5.производим с ними арифм. операции 
+		 * 6.и результат переводим обратно в римские цифры
+		 * 
+		 * 
+		 * */
 		command = new AdditionCommand(unit, a, b);
 		run(command);
 	}
