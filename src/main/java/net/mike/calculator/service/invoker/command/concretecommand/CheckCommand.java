@@ -12,6 +12,7 @@ public class CheckCommand extends Command {
 		this.unit = unit;
 		this.exp = exp;
 	}
+	
 
 	public String getExp() {
 		return exp;
