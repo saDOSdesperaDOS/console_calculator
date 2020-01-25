@@ -11,10 +11,14 @@ package net.mike.calculator.service.receiver;
 			private Spliter spliter;
 			
 			public void run(String exp ) {
-				spliter = new Spliter();
-				operandsList = spliter.getOperands(exp);
-				operator = spliter.getOperator(exp);
-				Operations.values(); 
+				ArithmeticUnit unit = new ArithmeticUnit();
+				Spliter sp = unit.new Spliter();
+				String[] operandsList = sp.getOperands(exp);
+				String operator = sp.getOperator(exp);
+				Number n1 = Integer.parseInt(operandsList[0]);
+				Number n2 = Integer.parseInt(operandsList[1]);
+				Operations op  = Operations.ADD;
+				System.out.println(op.apply(n1, n2));
 				
 			}
 			
@@ -63,8 +67,6 @@ package net.mike.calculator.service.receiver;
 
 			    private String operation;
 			 
-			    private Operations[] values = values();
-
 			    Operations(String operation) {
 
 			        this.operation = operation;
@@ -76,9 +78,7 @@ package net.mike.calculator.service.receiver;
 
 			    public abstract Number apply(Number x, Number y);
 
-			    public Operations[] getValues() {
-			        return values;
-			    }
+			    
 			}
 		
 	

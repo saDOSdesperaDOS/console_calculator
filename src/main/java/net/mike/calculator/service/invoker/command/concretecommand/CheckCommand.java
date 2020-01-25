@@ -1,6 +1,6 @@
-package net.mike.calculator.service.command.concretecommand;
+package net.mike.calculator.service.invoker.command.concretecommand;
 
-import net.mike.calculator.service.command.Command;
+import net.mike.calculator.service.invoker.command.Command;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
 
 public class CheckCommand extends Command {
