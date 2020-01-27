@@ -68,7 +68,6 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				Operations op  = Operations.ADD;
 				String operator = sp.getOperator(exp);
 				String[] operandsList = sp.getOperands(exp);
-				String r4;
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					operand1 = converter.romanToArabic(operandsList[0]);
 					operand2 = converter.romanToArabic(operandsList[1]);
@@ -92,20 +91,18 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				
 			}
 			
-			
-	
 			public enum Operations {
 
 			    ADD("+") {
 			        @Override
 			        public Number apply(Number x, Number y) {
-			            return x.doubleValue() + y.doubleValue();
+			            return x.intValue() + y.intValue();
 			        }
 			    },
 			    SUBTRACT("-") {
 			        @Override
 			        public Number apply(Number x, Number y) {
-			            return x.doubleValue() - y.doubleValue();
+			            return x.intValue() - y.intValue();
 			        }
 			    },
 			    DIVIDE("/") {
@@ -116,8 +113,8 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			    },
 			    MULTIPLY("*") {
 			        @Override
-			        public Number apply(Number x, Number y) {
-			            return x.doubleValue() * y.doubleValue();
+			        public Number apply( Number x, Number y) {
+			            return x.intValue() * y.intValue();
 			        }
 			    };
 				private String operation;
@@ -227,16 +224,15 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 
 			        return sb.toString();
 			          }
-			    
-			    public boolean checkOperands(String exp) {
-			    	if(new Converter().getOperandType(exp) == OperandType.valueOf("ROMAN")) 
-					  return true;
-			      return false;
-			      }
 	}
 	
 		public class Spliter {
-		
+			
+			public boolean check(String exp) {
+				boolean result = false;
+				  if (exp.contains(" ")) result = true; 
+				    return result;
+			  }
 			public String[] getOperands(String exp) {
 		
 		        return exp.split("[+-/*]", 2);
@@ -246,6 +242,10 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 		
 		        return exp.toUpperCase().replaceAll( "[0-9],[IVXLCM]", "");
 		    }
+			
+			public String replace(String exp) {
+				return exp.toUpperCase().replace(" ", "");
+			}
 		
 		}
 	}
