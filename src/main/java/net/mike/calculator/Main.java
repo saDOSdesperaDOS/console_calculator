@@ -19,7 +19,7 @@ public class Main {
 		System.out.println("Введите выражение для вычисления: ");
 		//Scanner input = new Scanner(System.in);
 		//String exp = input.nextLine();
-		String exp = "4+6";
+		String exp = "XII+XVIII";
 		//Просим Controller создать и отправить ArithmeticUnit комманду AdditionalCommand
 		Calculator c = new Calculator();
 		c.add(exp);
