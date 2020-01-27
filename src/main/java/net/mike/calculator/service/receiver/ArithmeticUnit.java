@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import net.mike.calculator.service.receiver.ArithmeticUnit.Converter;
 import net.mike.calculator.service.receiver.ArithmeticUnit.OperandType;
 import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 
@@ -13,23 +14,36 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 		public class ArithmeticUnit {
 		
 			private String exp;
-			private int result;
+			private Number result;
 			private String[] operandsList;
 			private String operator;
 			private Spliter spliter;
 			
-			public void run(String exp ) {
-				ArithmeticUnit unit = new ArithmeticUnit();
-				Spliter sp = unit.new Spliter();
-				String[] operandsList = sp.getOperands(exp);
-				String operator = sp.getOperator(exp);
-				Number operand1 = Integer.parseInt(operandsList[0]);
-				Number operand2 = Integer.parseInt(operandsList[1]);
-				Operations op  = Operations.ADD;
-				System.out.println(op.apply(operand1, operand2));
-				
-			}
 			
+			public String[] getOperandsList() {
+				return operandsList;
+			}
+
+			public void setOperandsList(String[] operandsList) {
+				this.operandsList = operandsList;
+			}
+
+			public String getOperator() {
+				return operator;
+			}
+
+			public void setOperator(String operator) {
+				this.operator = operator;
+			}
+
+			public Spliter getSpliter() {
+				return spliter;
+			}
+
+			public void setSpliter(Spliter spliter) {
+				this.spliter = spliter;
+			}
+
 			public String getExp() {
 				return exp;
 			}
@@ -38,13 +52,47 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				this.exp = exp;
 			}
 		
-			public int getResult() {
+			public Number getResult() {
 				return result;
 			}
 		
-			public void setResult(int result) {
+			public void setResult(Number result) {
 				this.result = result;
 			}
+			public void run(String exp ) {
+				ArithmeticUnit unit = new ArithmeticUnit();
+				Spliter sp = unit.new Spliter();
+				Converter converter = unit.new Converter();
+				Number operand1 = null;
+				Number operand2 = null;
+				Operations op  = Operations.ADD;
+				String operator = sp.getOperator(exp);
+				String[] operandsList = sp.getOperands(exp);
+				String r4;
+				if (converter.getOperandType(exp) == OperandType.ROMAN) {
+					operand1 = converter.romanToArabic(operandsList[0]);
+					operand2 = converter.romanToArabic(operandsList[1]);
+				} else {
+				operand1 = Integer.parseInt(operandsList[0]);
+			    operand2 = Integer.parseInt(operandsList[1]);
+			    }
+				result = op.apply(operand1, operand2);
+				int r2;
+				
+				r2 =  result.intValue();//нужно Number еревести в int
+				if (converter.getOperandType(exp) == OperandType.ROMAN) {
+					
+					String r3 = converter.arabicToRoman(r2);
+					System.out.println(r3);
+				} else {
+					System.out.println(r2);
+				}
+				
+				
+				
+			}
+			
+			
 	
 			public enum Operations {
 
