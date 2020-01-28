@@ -13,13 +13,44 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 public class Calculator {
 	
 	Controller controller;
-	
+	Operations op;
 
 	public void add(String exp) {
 		/*// нужно разобрать exp, чтобы узнать command
 		1*/
+		
 		ArithmeticUnit unit = new ArithmeticUnit();
-		AdditionCommand command = new AdditionCommand(unit, exp);
+		Operations op1 = Operations.ADD;
+		AdditionCommand command = new AdditionCommand(unit, exp, op1);
+		run(command);//нужно разложить гдето с верху стека
+	}
+	public void sub(String exp) {
+		/*// нужно разобрать exp, чтобы узнать command
+		1*/
+		
+		ArithmeticUnit unit = new ArithmeticUnit();
+		Operations op1 = Operations.SUBTRACT;
+		AdditionCommand command = new AdditionCommand(unit, exp, op1);
+		run(command);//нужно разложить гдето с верху стека
+	}
+	
+	public void mul(String exp) {
+		/*// нужно разобрать exp, чтобы узнать command
+		1*/
+		
+		ArithmeticUnit unit = new ArithmeticUnit();
+		Operations op1 = Operations.MULTIPLY;
+		AdditionCommand command = new AdditionCommand(unit, exp, op1);
+		run(command);//нужно разложить гдето с верху стека
+	}
+	
+	public void div(String exp) {
+		/*// нужно разобрать exp, чтобы узнать command
+		1*/
+		
+		ArithmeticUnit unit = new ArithmeticUnit();
+		Operations op1 = Operations.DIVIDE;
+		AdditionCommand command = new AdditionCommand(unit, exp, op1);
 		run(command);//нужно разложить гдето с верху стека
 	}
 	
@@ -48,10 +79,18 @@ public class Calculator {
 		Spliter s = u.new Spliter();
 		String exp2 = null;
 		if (s.check(exp)) {
-			exp2 = s.replace(exp);
+			exp = s.replace(exp);
 		}
-		System.out.println(exp2);
-		u.run(exp2);
+		
+		if(exp.contains("+")) {
+			this.add(exp);
+		} else if (exp.contains("-")) {
+			this.sub(exp);
+		} else if (exp.contains("*")) {
+			this.mul(exp);
+		} else if (exp.contains("/")) {
+			this.div(exp);
+		}
 	}
 	
 }

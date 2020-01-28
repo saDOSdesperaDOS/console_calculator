@@ -2,24 +2,15 @@ package net.mike.calculator.service.invoker.command.concretecommand;
 
 import net.mike.calculator.service.invoker.command.Command;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
-import net.mike.calculator.service.receiver.ArithmeticUnit.Operations;
 
-//Concrete command
-public class AdditionCommand extends Command {
-	
+public class SubtractionCommand extends Command {
+
 	private ArithmeticUnit unit;//receiver
 	private String exp;
-	private Operations op;
 	
-	public void setOp(Operations op) {
-		this.op = op;
-	}
-
-	public AdditionCommand(ArithmeticUnit unit, String exp, Operations op) {
+	public SubtractionCommand(ArithmeticUnit unit, String exp) {
 		this.unit =  unit;
-		this.op = op;
 		  this.exp = exp;
-		 
 	}
 	
 	public ArithmeticUnit getUnit() {
@@ -37,14 +28,10 @@ public class AdditionCommand extends Command {
 	public void setExp(String exp) {
 		this.exp = exp;
 	}
-	
-	public Operations getOp() {
-		return this.op;
-	}
 
 	@Override
 	public void execute() {
-		unit.setOp(op);
-		unit.run(exp);
+	  unit.run(exp);
 	}
+
 }

@@ -15,9 +15,9 @@ public class Main {
 		
 		//input
 		System.out.println("Введите выражение для вычисления: ");
-		//Scanner input = new Scanner(System.in);
-		//String exp = input.nextLine();
-		String exp = "  IV +    IX   ";
+		Scanner input = new Scanner(System.in);
+		String exp = input.nextLine();
+		//String exp = "    7   /    2";
 		
 		//Просим Controller создать и отправить ArithmeticUnit комманду AdditionalCommand
 		Calculator c = new Calculator();

@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import net.mike.calculator.service.invoker.command.Command;
 import net.mike.calculator.service.receiver.ArithmeticUnit.Converter;
 import net.mike.calculator.service.receiver.ArithmeticUnit.OperandType;
 import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
@@ -16,10 +17,19 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			private Converter converter; 
 			private Number operand1,operand2, result;
 			private String[] operandsList;
+			
+
 			private Spliter sp;
+			private Command command;
 			private Operations op;
 			
-			
+			public Command getCommand() {
+				return command;
+			}
+
+			public void setCommand(Command command) {
+				this.command = command;
+			}
 			public Converter getConverter() {
 				return converter;
 			}
@@ -76,10 +86,11 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				this.op = op;
 			}
 
-			public void run(String exp ) {
+			public void run(String exp) {
 				converter = this.new Converter();
 				sp = this.new Spliter();
 				operandsList = sp.getOperands(exp);
+				this.setCommand(command);
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					operand1 = converter.romanToArabic(operandsList[0]);
 					operand2 = converter.romanToArabic(operandsList[1]);
@@ -88,8 +99,8 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				    operand2 = Integer.parseInt(operandsList[1]);
 				      }
 					
-				this.setOp(Operations.ADD);
-				
+			
+			
 				result = op.apply(operand1, operand2);
 				int r2;
 				
@@ -130,6 +141,10 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			            return x.intValue() * y.intValue();
 			        }
 			    };
+				public void setOperation(String operation) {
+					this.operation = operation;
+				}
+
 				private String operation;
 				
 			    Operations(String operation) {

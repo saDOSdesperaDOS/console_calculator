@@ -5,7 +5,7 @@ import net.mike.calculator.service.invoker.command.Command;
 //invoker
 public class Controller  {
 	
-	private Command command;
+	private Command command; 
 	
 	public void setCommand(Command command) {
 		  this.command = command;
