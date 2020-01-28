@@ -12,7 +12,7 @@ public class AdditionCommand extends Command {
 	private Operations op;
 	
 	public void setOp(Operations op) {
-		this.op = op;
+		this.op = op; 
 	}
 
 	public AdditionCommand(ArithmeticUnit unit, String exp, Operations op) {

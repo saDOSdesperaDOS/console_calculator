@@ -23,74 +23,15 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			private Command command;
 			private Operations op;
 			
-			public Command getCommand() {
-				return command;
-			}
-
-			public void setCommand(Command command) {
-				this.command = command;
-			}
-			public Converter getConverter() {
-				return converter;
-			}
-
-			public void setConverter(Converter converter) {
-				this.converter = converter;
-			}
-
-			public Number getOperand1() {
-				return operand1;
-			}
-
-			public void setOperand1(Number operand1) {
-				this.operand1 = operand1;
-			}
-
-			public Number getOperand2() {
-				return operand2;
-			}
-
-			public void setOperand2(Number operand2) {
-				this.operand2 = operand2;
-			}
-
-			public Number getResult() {
-				return result;
-			}
-
-			public void setResult(Number result) {
-				this.result = result;
-			}
-
-			public String[] getOperandsList() {
-				return operandsList;
-			}
-
-			public void setOperandsList(String[] operandsList) {
-				this.operandsList = operandsList;
-			}
-
-			public Spliter getSp() {
-				return sp;
-			}
-
-			public void setSp(Spliter sp) {
-				this.sp = sp;
-			}
-
-			public Operations getOp() {
-				return op;
-			}
-
-			public void setOp(Operations op) {
-				this.op = op;
-			}
+			
 
 			public void run(String exp) {
 				converter = this.new Converter();
 				sp = this.new Spliter();
 				operandsList = sp.getOperands(exp);
+				
 				this.setCommand(command);
+				
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					operand1 = converter.romanToArabic(operandsList[0]);
 					operand2 = converter.romanToArabic(operandsList[1]);
@@ -98,12 +39,11 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				    operand1 = Integer.parseInt(operandsList[0]);
 				    operand2 = Integer.parseInt(operandsList[1]);
 				      }
-					
-			
-			
+				
+				/* делаем проверку что не больше 10*/
+				
 				result = op.apply(operand1, operand2);
 				int r2;
-				
 				r2 =  result.intValue();//нужно Number еревести в int
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					
@@ -114,7 +54,22 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				}
 			}
 			
-			
+			public Command getCommand() {
+				return command;
+			}
+
+			public void setCommand(Command command) {
+				this.command = command;
+			}
+
+			public Operations getOp() {
+				return op;
+			}
+
+			public void setOp(Operations op) {
+				this.op = op;
+			}
+
 			public enum Operations {
 
 			    ADD("+") {
@@ -164,7 +119,7 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 	public enum OperandType {
 			ARABIC,
 		      ROMAN
-		}
+		} 
 	
 	public enum RomanOperand {
 
@@ -256,7 +211,7 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 	
 		public class Spliter {
 			
-			public boolean check(String exp) {
+			public boolean checkSpace(String exp) {
 				boolean result = false;
 				  if (exp.contains(" ")) result = true; 
 				    return result;
@@ -265,6 +220,10 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 		
 		        return exp.split("[+-/*]", 2);
 		    }
+			
+			public boolean checkOperand(String[] operands) {
+				return false;
+			}
 		
 			public String getOperator(String exp) {
 		

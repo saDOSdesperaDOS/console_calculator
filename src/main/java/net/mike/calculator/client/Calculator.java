@@ -56,7 +56,7 @@ public class Calculator {
 	
 	public void run(Command command) {
 		controller = new Controller();  
-		controller.setCommand(command);
+		controller.setCommand(command); 
 		controller.ExecuteCommand();    
 	}
 
@@ -77,8 +77,7 @@ public class Calculator {
 	public void showMeResult(String exp) {
 		ArithmeticUnit u = new ArithmeticUnit();
 		Spliter s = u.new Spliter();
-		String exp2 = null;
-		if (s.check(exp)) {
+		if (s.checkSpace(exp)) {
 			exp = s.replace(exp);
 		}
 		
