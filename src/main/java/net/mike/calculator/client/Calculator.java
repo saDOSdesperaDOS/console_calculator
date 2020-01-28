@@ -51,6 +51,7 @@ public class Calculator {
 			exp2 = s.replace(exp);
 		}
 		System.out.println(exp2);
+		u.run(exp2);
 	}
 	
 }

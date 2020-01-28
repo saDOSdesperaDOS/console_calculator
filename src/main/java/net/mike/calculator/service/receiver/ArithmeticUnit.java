@@ -13,13 +13,45 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 //receiver
 		public class ArithmeticUnit {
 		
-			private String exp;
-			private Number result;
+			private Converter converter; 
+			private Number operand1,operand2, result;
 			private String[] operandsList;
-			private String operator;
-			private Spliter spliter;
+			private Spliter sp;
+			private Operations op;
 			
 			
+			public Converter getConverter() {
+				return converter;
+			}
+
+			public void setConverter(Converter converter) {
+				this.converter = converter;
+			}
+
+			public Number getOperand1() {
+				return operand1;
+			}
+
+			public void setOperand1(Number operand1) {
+				this.operand1 = operand1;
+			}
+
+			public Number getOperand2() {
+				return operand2;
+			}
+
+			public void setOperand2(Number operand2) {
+				this.operand2 = operand2;
+			}
+
+			public Number getResult() {
+				return result;
+			}
+
+			public void setResult(Number result) {
+				this.result = result;
+			}
+
 			public String[] getOperandsList() {
 				return operandsList;
 			}
@@ -28,46 +60,26 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				this.operandsList = operandsList;
 			}
 
-			public String getOperator() {
-				return operator;
+			public Spliter getSp() {
+				return sp;
 			}
 
-			public void setOperator(String operator) {
-				this.operator = operator;
+			public void setSp(Spliter sp) {
+				this.sp = sp;
 			}
 
-			public Spliter getSpliter() {
-				return spliter;
+			public Operations getOp() {
+				return op;
 			}
 
-			public void setSpliter(Spliter spliter) {
-				this.spliter = spliter;
+			public void setOp(Operations op) {
+				this.op = op;
 			}
 
-			public String getExp() {
-				return exp;
-			}
-		
-			public void setExp(String exp) {
-				this.exp = exp;
-			}
-		
-			public Number getResult() {
-				return result;
-			}
-		
-			public void setResult(Number result) {
-				this.result = result;
-			}
 			public void run(String exp ) {
-				ArithmeticUnit unit = new ArithmeticUnit();
-				Spliter sp = unit.new Spliter();
-				Converter converter = unit.new Converter();
-				Number operand1 = null;
-				Number operand2 = null;
-				Operations op = null;
-				String operator = sp.getOperator(exp);
-				String[] operandsList = sp.getOperands(exp);
+				converter = this.new Converter();
+				sp = this.new Spliter();
+				operandsList = sp.getOperands(exp);
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					operand1 = converter.romanToArabic(operandsList[0]);
 					operand2 = converter.romanToArabic(operandsList[1]);
@@ -76,18 +88,7 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				    operand2 = Integer.parseInt(operandsList[1]);
 				      }
 					
-				switch (operator) {
-					  case "+": op = Operations.ADD;
-						  break;
-					  case "-": op = Operations.SUBTRACT;
-					      break;
-					  case "*": op = Operations.MULTIPLY;
-					      break;
-					  case "/": op = Operations.DIVIDE;
-					      break;
-					  default:
-						  break;
-				}
+				this.setOp(Operations.ADD);
 				
 				result = op.apply(operand1, operand2);
 				int r2;
@@ -101,6 +102,7 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 					System.out.println(r2);
 				}
 			}
+			
 			
 			public enum Operations {
 
