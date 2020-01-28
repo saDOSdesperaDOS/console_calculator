@@ -65,16 +65,30 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				Converter converter = unit.new Converter();
 				Number operand1 = null;
 				Number operand2 = null;
-				Operations op  = Operations.ADD;
+				Operations op = null;
 				String operator = sp.getOperator(exp);
 				String[] operandsList = sp.getOperands(exp);
 				if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					operand1 = converter.romanToArabic(operandsList[0]);
 					operand2 = converter.romanToArabic(operandsList[1]);
-				} else {
-				operand1 = Integer.parseInt(operandsList[0]);
-			    operand2 = Integer.parseInt(operandsList[1]);
-			    }
+				  } else {
+				    operand1 = Integer.parseInt(operandsList[0]);
+				    operand2 = Integer.parseInt(operandsList[1]);
+				      }
+					
+				switch (operator) {
+					  case "+": op = Operations.ADD;
+						  break;
+					  case "-": op = Operations.SUBTRACT;
+					      break;
+					  case "*": op = Operations.MULTIPLY;
+					      break;
+					  case "/": op = Operations.DIVIDE;
+					      break;
+					  default:
+						  break;
+				}
+				
 				result = op.apply(operand1, operand2);
 				int r2;
 				
@@ -86,9 +100,6 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				} else {
 					System.out.println(r2);
 				}
-				
-				
-				
 			}
 			
 			public enum Operations {

@@ -18,16 +18,11 @@ public class Main {
 		//Scanner input = new Scanner(System.in);
 		//String exp = input.nextLine();
 		String exp = "  12 +    9   ";
-		ArithmeticUnit u = new ArithmeticUnit();
-		Spliter s = u.new Spliter();
-		String exp2 = null;
-		if (s.check(exp)) {
-			exp2 = s.replace(exp);
-		}
-		System.out.println(exp2);
+		
 		//Просим Controller создать и отправить ArithmeticUnit комманду AdditionalCommand
 		Calculator c = new Calculator();
-		c.add(exp2);
+		c.showMeResult(exp);
+		
 
 	        
 		

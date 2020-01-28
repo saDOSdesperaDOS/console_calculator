@@ -1,5 +1,7 @@
   package net.mike.calculator.client;
 
+import java.util.Arrays;
+
 import net.mike.calculator.service.invoker.Controller;
 import net.mike.calculator.service.invoker.command.Command;
 import net.mike.calculator.service.invoker.command.concretecommand.AdditionCommand;
@@ -41,5 +43,14 @@ public class Calculator {
 		this.setArithmeticUnit(unit);
 		 return run(new DivisionCommand(this.getArithmeticUnit(), a, b));
 	}*/
+	public void showMeResult(String exp) {
+		ArithmeticUnit u = new ArithmeticUnit();
+		Spliter s = u.new Spliter();
+		String exp2 = null;
+		if (s.check(exp)) {
+			exp2 = s.replace(exp);
+		}
+		System.out.println(exp2);
+	}
 	
 }
