@@ -5,3 +5,4 @@ package net.mike.calculator.service.invoker.command;
 	public abstract class Command {
 		public abstract void execute();
 	} 
+ 

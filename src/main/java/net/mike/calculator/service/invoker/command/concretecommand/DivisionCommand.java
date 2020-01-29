@@ -12,7 +12,7 @@ public class DivisionCommand extends Command {
 	public DivisionCommand(String exp) {
 		  this.exp = exp;
 	}
-
+ 
 	@Override
 	public void execute() {
 	  unit = new ArithmeticUnit();

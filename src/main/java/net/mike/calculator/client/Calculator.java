@@ -1,6 +1,4 @@
-  package net.mike.calculator.client;
-
-import java.util.Arrays;
+package net.mike.calculator.client;
 
 import net.mike.calculator.service.invoker.Controller;
 import net.mike.calculator.service.invoker.command.Command;
@@ -9,34 +7,29 @@ import net.mike.calculator.service.invoker.command.concretecommand.DivisionComma
 import net.mike.calculator.service.invoker.command.concretecommand.MultiplicationCommand;
 import net.mike.calculator.service.invoker.command.concretecommand.SubtractionCommand;
 import net.mike.calculator.service.receiver.ArithmeticUnit;
-import net.mike.calculator.service.receiver.ArithmeticUnit.Operations;
 import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 
 //client
 public class Calculator {
 	
 	Controller controller;
-	Operations op;
 
 	public void add(String exp) {
-	
 		AdditionCommand command = new AdditionCommand(exp);
-		run(command);
-	}
+		  run(command);
+	} 
+	
 	public void sub(String exp) {
-		
 		SubtractionCommand command = new SubtractionCommand(exp);
           run(command);
 	}
 	
 	public void mul(String exp) {
-
 		MultiplicationCommand command = new MultiplicationCommand(exp);
 		run(command);
 	}
 	
 	public void div(String exp) {
-
 		DivisionCommand command = new DivisionCommand(exp);
 		run(command);
 	}
@@ -55,7 +48,7 @@ public class Calculator {
 		
 		if (s.checkSpace(exp)) {
 			exp = s.replaceSpace(exp);
-		  }
+		  } 
 		
 		if(exp.contains("+")) {
 			  this.add(exp);
@@ -67,5 +60,4 @@ public class Calculator {
 			        this.div(exp);
 		        }
 	}
-	
 }

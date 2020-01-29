@@ -12,7 +12,7 @@ public class SubtractionCommand extends Command {
 	public SubtractionCommand(String exp) {
 		  this.exp = exp;
 	} 
-
+ 
 	@Override
 	public void execute() {
 		unit = new ArithmeticUnit();
