@@ -17,59 +17,74 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			private Converter converter; 
 			private Number operand1,operand2, result;
 			private String[] operandsList;
-			
-
 			private Spliter sp;
 			private Command command;
 			private Operations op;
-			
-			
 
-			public void run(String exp) {
-				converter = this.new Converter();
-				sp = this.new Spliter();
-				operandsList = sp.getOperands(exp);
+			  public void run(String exp) {
+				  
+				  converter = this.new Converter();
+				    sp = this.new Spliter();
+				      operandsList = sp.getOperands(exp);
+				        this.setCommand(command);
 				
-				this.setCommand(command);
+				          if (converter.getOperandType(exp) == OperandType.ROMAN) {
+
+				        	  operand1 = converter.romanToArabic(operandsList[0]);
+				        	    operand2 = converter.romanToArabic(operandsList[1]);
+				            
+				            } else {
+				            	  
+				            	  operand1 = Integer.parseInt(operandsList[0]);
+				            	    operand2 = Integer.parseInt(operandsList[1]);
+				              }
+				          
+				          /* делаем проверку что не больше 10*/
 				
-				if (converter.getOperandType(exp) == OperandType.ROMAN) {
-					operand1 = converter.romanToArabic(operandsList[0]);
-					operand2 = converter.romanToArabic(operandsList[1]);
-				  } else {
-				    operand1 = Integer.parseInt(operandsList[0]);
-				    operand2 = Integer.parseInt(operandsList[1]);
-				      }
-				
-				/* делаем проверку что не больше 10*/
-				
-				result = op.apply(operand1, operand2);
-				int r2;
-				r2 =  result.intValue();//нужно Number еревести в int
-				if (converter.getOperandType(exp) == OperandType.ROMAN) {
+				            		  result = op.apply(operand1, operand2);
+				            		    int r2;
+				            		      r2 =  result.intValue();//нужно Number еревести в int
+				            		        
+				            		      if (converter.getOperandType(exp) == OperandType.ROMAN) {
 					
-					String r3 = converter.arabicToRoman(r2);
-					System.out.println(r3);
-				} else {
-					System.out.println(r2);
-				}
-			}
+				            		        	String r3 = converter.arabicToRoman(r2);
+				            		        	  System.out.println(r3);
+				            		          
+				            		          } else {
+				            		        	    
+				            		                System.out.println(r2);
+				            		            
+				            		            }
+			  }
 			
-			public Command getCommand() {
+			public Command getCommand() { 
+				
 				return command;
-			}
+				
+			  }
 
+			
 			public void setCommand(Command command) {
+				
 				this.command = command;
-			}
+				
+			  }
 
+			
 			public Operations getOp() {
+				
 				return op;
-			}
+				
+			  }
 
+			
 			public void setOp(Operations op) {
+				
 				this.op = op;
-			}
+				
+			  }
 
+			
 			public enum Operations {
 
 			    ADD("+") {
@@ -96,24 +111,21 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 			            return x.intValue() * y.intValue();
 			        }
 			    };
-				public void setOperation(String operation) {
-					this.operation = operation;
-				}
-
-				private String operation;
-				
+			
+				//Constructor enum Operations
 			    Operations(String operation) {
-
+			    	
 			        this.operation = operation;
-			    }
-
-			    public String getOperation() {
-			        return operation;
-			    }
-
-			    public abstract Number apply(Number x, Number y);
-
+			     }
+				
+			    private String operation;
 			    
+			    public String operation() {
+			    	
+			    	return operation;
+			      }
+			   
+			    public abstract Number apply(Number x, Number y);
 			}
 	
 	public enum OperandType {
@@ -131,36 +143,32 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 
 	    RomanOperand(int value) {
 	        this.value = value;
-	    }
+          }
 
 	    public int getValue() {
 	        return value;
-	    }
+	      }
 
 	    public static List<RomanOperand> getReverseSortedValues() {
 	        return Arrays.stream(values())
-	                .sorted(Comparator.comparing((RomanOperand e) -> e.value).reversed())
-	                .collect(Collectors.toList());
-	    }
+	          .sorted(Comparator.comparing((RomanOperand e) -> e.value).reversed())
+	             .collect(Collectors.toList());
+	      }
 	}
-	
-	public class Checker{
-		
-	}	
 	
 	public class Converter {
 			
-			private OperandType operandType;
+	  private OperandType operandType;
 		
 			public OperandType getOperandType(String exp) {
 		
 		        return isArabic(exp) ? OperandType.ARABIC : OperandType.ROMAN;
-		    } 
+		      } 
 			
 			public boolean isArabic(String exp) {
 		
-			       return exp.matches("[0-9]+\\s*[+-/*]+\\s*[0-9]+");
-			   }
+			    return exp.matches("[0-9]+\\s*[+-/*]+\\s*[0-9]+");
+			  }
 			
 			 public int romanToArabic(String input) {
 
@@ -216,23 +224,24 @@ import net.mike.calculator.service.receiver.ArithmeticUnit.Spliter;
 				  if (exp.contains(" ")) result = true; 
 				    return result;
 			  }
+			
 			public String[] getOperands(String exp) {
 		
 		        return exp.split("[+-/*]", 2);
-		    }
+		      }
 			
 			public boolean checkOperand(String[] operands) {
-				return false;
-			}
+			    return false;
+			  }
 		
 			public String getOperator(String exp) {
 		
-		        return exp.toUpperCase().replaceAll( "[0-9],[IVXLCM]", "");
-		    }
+				return exp.toUpperCase().replaceAll( "[0-9],[IVXLCM]", "");
+		      }
 			
-			public String replace(String exp) {
+			public String replaceSpace(String exp) {
+				
 				return exp.toUpperCase().replace(" ", "");
-			}
-		
+			  }
 		}
 	}
